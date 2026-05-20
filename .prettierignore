@@ -1,0 +1,9 @@
+# Files in which we don't want prettier formatting
+
+*.env
+.env
+.env.*
+
+/.vscode
+/node_modules
+./dist
