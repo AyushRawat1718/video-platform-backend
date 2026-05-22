@@ -1,7 +1,21 @@
 import express from "express";
 import connectDB from "./db/index.js";
 
-connectDB();
+const PORT = process.env.PORT || 8000;
+
+connectDB()
+  .then(() => {
+    app.on("error", (error) => {
+      console.log("Error in listening at port", error);
+      throw error;
+    });
+    app.listen(PORT, () => {
+      console.log(`Server is running at PORT: ${PORT}`);
+    });
+  })
+  .catch((err) => {
+    console.log("Mongo DB connection Failed !!!", err);
+  });
 
 /*
 
